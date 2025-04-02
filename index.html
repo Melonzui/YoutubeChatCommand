@@ -7,34 +7,48 @@
   <style>
     body {
       font-family: sans-serif;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
       background: #fafafa;
+      padding: 2rem;
+      margin: 0;
     }
+
     h1 {
       text-align: center;
       margin-bottom: 2rem;
     }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
     .example {
       background: white;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       padding: 1rem;
-      margin-bottom: 2rem;
+      text-align: center;
     }
+
     .example img {
       width: 100%;
+      height: auto;
       border-radius: 8px;
       border: 1px solid #ccc;
+      object-fit: cover;
     }
+
     .command {
       background-color: #f0f0f0;
-      padding: 0.75rem;
-      margin-top: 1rem;
+      padding: 0.5rem;
+      margin-top: 0.75rem;
       border-radius: 8px;
       font-family: monospace;
+      font-size: 0.9rem;
+      word-break: keep-all;
     }
+
     footer {
       text-align: center;
       margin-top: 4rem;
@@ -46,18 +60,15 @@
 <body>
 
   <h1>🖼️ 이미지 명령어 가이드</h1>
-  <div id="gallery"></div>
+  <div class="gallery" id="gallery"></div>
 
   <footer>
     © 2025 이미지 가이드 by @yourname
   </footer>
 
   <script>
-    // 수동으로 이미지 파일명을 나열
     const imageFiles = [
-      "D1.png",
-      "tg.png",
-      "D23.png"
+      "D21.png","D22.png","D23.png","D24.png","D25.png","D26.png","D27.png","D28.png","D29.png",
     ];
 
     const gallery = document.getElementById("gallery");
@@ -73,5 +84,6 @@
       gallery.appendChild(div);
     });
   </script>
+
 </body>
 </html>
