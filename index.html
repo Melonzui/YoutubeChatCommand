@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>이미지 명령어 사용법</title>
+  <meta charset="UTF-8">
+  <title>이미지 명령어 가이드</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: sans-serif;
       padding: 2rem;
-      background-color: #f9f9f9;
       max-width: 800px;
       margin: auto;
+      background: #fafafa;
     }
     h1 {
       text-align: center;
       margin-bottom: 2rem;
     }
     .example {
-      background: #fff;
+      background: white;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       padding: 1rem;
@@ -25,7 +25,6 @@
     }
     .example img {
       width: 100%;
-      height: auto;
       border-radius: 8px;
       border: 1px solid #ccc;
     }
@@ -35,7 +34,6 @@
       margin-top: 1rem;
       border-radius: 8px;
       font-family: monospace;
-      color: #333;
     }
     footer {
       text-align: center;
@@ -47,21 +45,33 @@
 </head>
 <body>
 
-  <h1>🖼️ 이미지 명령어 사용법</h1>
-
-  <div class="example">
-    <img src="assets/D1.png" alt="예시 이미지 1" />
-    <div class="command">/이미지 흰색 곱슬머리의 청년이 붉은 눈으로 미소 짓고 있는 모습</div>
-  </div>
-
-  <div class="example">
-    <img src="assets/tg.png" alt="예시 이미지 2" />
-    <div class="command">/이미지 고양이가 모자를 쓰고 책 읽는 중</div>
-  </div>
+  <h1>🖼️ 이미지 명령어 가이드</h1>
+  <div id="gallery"></div>
 
   <footer>
     © 2025 이미지 가이드 by @yourname
   </footer>
 
+  <script>
+    // 수동으로 이미지 파일명을 나열
+    const imageFiles = [
+      "D1.png",
+      "tg.png",
+      "D23.png"
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    imageFiles.forEach(file => {
+      const commandText = file.replace(/\.[^/.]+$/, ""); // 확장자 제거
+      const div = document.createElement("div");
+      div.className = "example";
+      div.innerHTML = `
+        <img src="assets/${file}" alt="${commandText}">
+        <div class="command">/이미지 ${commandText}</div>
+      `;
+      gallery.appendChild(div);
+    });
+  </script>
 </body>
 </html>
