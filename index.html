@@ -84,6 +84,22 @@
         <img src="assets/${file}" alt="${commandText}">
         <div class="command">~${commandText}</div>
       `;
+
+  // 복사 기능 추가
+      div.style.cursor = "pointer";
+      div.title = "클릭 시 복사됨";
+      div.addEventListener("click", () => {
+        const fullCommand = `~${commandText}`;
+        navigator.clipboard.writeText(fullCommand).then(() => {
+          div.classList.add("copied");
+          const originalText = div.querySelector(".command").textContent;
+          div.querySelector(".command").textContent = "✅ 복사됨!";
+          setTimeout(() => {
+            div.querySelector(".command").textContent = originalText;
+          }, 1000);
+        });
+      });
+
       gallery.appendChild(div);
     });
   </script>
